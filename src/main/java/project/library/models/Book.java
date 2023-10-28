@@ -13,7 +13,7 @@ public class Book {
     private UUID id;
     private String name;
     private String author;
-    private String pages;
+    private int pages;
 
 
     public UUID getId() {
@@ -40,11 +40,11 @@ public class Book {
         this.author = author;
     }
 
-    public String getPages() {
+    public int getPages() {
         return pages;
     }
 
-    public void setPages(String pages) {
+    public void setPages(int pages) {
         this.pages = pages;
     }
 }
