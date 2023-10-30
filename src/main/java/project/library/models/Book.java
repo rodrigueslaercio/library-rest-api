@@ -2,6 +2,7 @@ package project.library.models;
 
 import jakarta.persistence.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -14,7 +15,8 @@ public class Book {
     private String name;
     private String author;
     private int pages;
-
+    @ManyToMany
+    private List<User> users;
 
     public UUID getId() {
         return id;
@@ -46,5 +48,13 @@ public class Book {
 
     public void setPages(int pages) {
         this.pages = pages;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 }

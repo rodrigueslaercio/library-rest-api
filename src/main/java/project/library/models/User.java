@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -20,10 +21,11 @@ public class User {
     @Column(unique = true)
     private String email;
     private String password;
+    private Boolean admin = false;
     @CreationTimestamp
     private LocalDateTime createdAt;
-    @OneToMany
-    private List<Book> books;
+    @ManyToMany
+    private List<Book> books = new ArrayList<Book>();
 
     public List<Book> getBooks() {
         return books;
@@ -79,5 +81,13 @@ public class User {
 
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public Boolean getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Boolean admin) {
+        this.admin = admin;
     }
 }
